@@ -7,11 +7,12 @@ interface ArchiveNoteFunctions {
     }
 
     fun addElement(header: String, mutableList: MutableList<Archive>) {
+        mutableList.removeAt(mutableList.size - 1)
         mutableList.removeLast()
         mutableList.add(Archive(header))
         mutableList[mutableList.size - 1].notesMap["Создать заметку"] = ""
         mutableList[mutableList.size - 1].notesMap["Назад"] = ""
-        mutableList.add(Archive("Выход из программы"))
+        mutableList.add(Archive("Завершить программу"))
         println("\nАрхив \"$header\" успешно добавлен")
     }
 
